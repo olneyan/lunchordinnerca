@@ -1,0 +1,118 @@
+<?php 
+
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+*
+ * @category    design
+ * @package     rwd_default
+ * @author 		CedCommerce Core Team <coreteam@cedcommerce.com>
+ * @copyright   Copyright CEDCOMMERCE (http://cedcommerce.com/)
+ * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ 
+?>
+
+<?php
+//echo get_class($this);die("if"); ?>
+<div class="page-title category-title">
+	<h1><?php echo $this->__(' Our Products')?></h1>
+</div>
+<div class="catagory-product-listing">
+	
+<?php 
+$proArray =[];
+    $_productCollection=$this->getProductCollection();
+  
+   foreach ($_productCollection as $key=>$val)
+   {
+      $proArray[$val->getData('category_id')][]= $val->getData();
+   }
+   foreach ($proArray as $k=>$v)
+   {
+    
+   	$_category = Mage::getModel('catalog/category')->load($k);
+   	?>
+   	<div class="ced-shop-menu-wrapper">
+   	
+   	<div class="ced-shop-menu-category active" id="<?php echo "cat".$k;?>" onclick="toggledata(this);">
+   		<h3>
+   			<?php echo $_category->getName(); ?>
+   		</h3>
+   		<div><?php echo $_category->getDescription(); ?></div>
+   	</div>
+   	<div class="ced-shop-menu-content-wrap">
+   		<?php 
+   		
+     	//echo "Cat- ";echo $categoryName = $_category->getName();echo "<br>";
+     	for($i=0;$i<count($v);$i++)
+     	{
+     		$product = Mage::getModel('catalog/product')->load($v[$i]['entity_id']);
+     		if($product->getHasOptions())
+     		{
+     			$onlick = "fun(this.id);";
+     		}
+     		else{
+     			$onlick = "submitForm(this.id);";
+     		}
+     	?>
+     		<div id="<?php echo $v[$i]['entity_id'];?>"  onclick="<?php echo $onlick;?>"  class="ced-shop-menu-content">
+     			<div class="pull-left left">
+	     			<h2>
+	     				<?php echo $v[$i]['name']; ?>
+	     			</h2>
+	     			<p>
+	     				<?php echo $v[$i]['description']; ?>
+	     			</p>
+	     			<?php  $RatingOb = Mage::getModel('rating/rating')->getEntitySummary($v[$i]['entity_id']);
+	     				$ratings ='';
+		     			if($RatingOb->getCount())
+		     			{
+		     				$ratings = $RatingOb->getSum()/$RatingOb->getCount();
+		     			}
+	     			?>
+	     			<?php if($ratings): ?>
+		     		    <div class="ratings">
+		     		        <div class="rating-box">
+		     		            <div class="rating" style="width:<?php echo $ratings; ?>%"></div>
+		     		        </div>
+		     		    </div>
+	     			<?php endif; ?>
+     			</div>
+     			<div class="pull-right">
+     				<span class="price">
+	     				<?php echo Mage::helper('core')->currency($v[$i]['price'], true, false); ?>
+              <span class="plus">+<span/>
+	     			</span>
+     			</div>
+     			<div class="clear"></div>
+     		</div>
+   <?php }
+   ?>
+   </div>
+   </div>
+   <?php 
+   }
+?>
+ </div>
+ <style>
+.ced-shop-menu-content:hover {
+    background-color: #F4F4F4;
+}
+</style>
+ <script>
+function toggledata(e)
+{
+   jQuery(e).toggleClass('active');
+   jQuery(e).next('.ced-shop-menu-content-wrap').slideToggle(300);
+
+}
+</script>
+ 
+ 
