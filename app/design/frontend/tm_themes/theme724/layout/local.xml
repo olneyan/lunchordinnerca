@@ -71,7 +71,10 @@
             <action method="unsetChild"><name>left.reports.product.viewed</name></action>
             <action method="unsetChild"><name>right.reports.product.compared</name></action>
             <action method="unsetChild"><name>right.poll</name></action>
+<<<<<<< HEAD
             <remove name="sale.reorder.sidebar"/>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         </reference>
         
         <reference name="footer">
@@ -117,7 +120,11 @@
             <action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position><liParams/><aParams>class="my-account-link"</aParams></action>
             
             <action method="removeLinkByUrl"><url helper="customer/getRegisterUrl"/></action>
+<<<<<<< HEAD
             <action method="addLink" translate="label title before_text" module="customer"><label>Create an account</label><url helper="customer/getRegisterUrl" /><title>Create an account</title><prepare/><urlParams/><position>100</position><li/><aParams>class="register-link"</aParams></action>
+=======
+            <action method="addLink" translate="label title before_text" module="customer"><label>Register</label><url helper="customer/getRegisterUrl" /><title>Register</title><prepare/><urlParams/><position>100</position><li/><aParams>class="register-link"</aParams></action>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         </reference>
 
         <reference name="wishlist_link">
@@ -317,6 +324,7 @@
 
 
 
+<<<<<<< HEAD
 
     <csmarketplace_vshops_view>
         <reference name="root">
@@ -333,5 +341,9 @@
         </reference>
     </csmarketplace_vshops_view>
 
+=======
+   
+  
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 </layout> 
 

@@ -21,12 +21,19 @@
 
 $parameters = $this->getRequest()->getParams();
 $extraData = $parameters['extradata'];
+<<<<<<< HEAD
 
+=======
+$VendorId =$parameters['vendor_id'];
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
 $extraData = urldecode($extraData);
 $extraData = json_decode($extraData,true);
 
+<<<<<<< HEAD
 $VendorId =$extraData['vendor_id'];
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 $order_for = $extraData['order_for'];
 $vendor_address ='';
 if($order_for == 'pickup')
@@ -140,6 +147,7 @@ if($order_for == 'pickup')
 </script>
 <?php else: ?>
 <input type="hidden" value="checkout" name="context">
+<<<<<<< HEAD
 <input style="display:none;" type="radio" name="checkout_method" id="login:register" value="register"<?php if($this->getQuote()->getCheckoutMethod()==Mage_Checkout_Model_Type_Onepage::METHOD_CUSTOMER): ?> checked="checked"<?php endif; ?> class="radio" />
 <input type="hidden" name="cart_id" value="<?php echo $this->getRequest()->getParam('cart_id'); ?>" />
 <button type="button" style="display:none;" class="button"  id="register_user" onclick="checkout.setMethod();"><span><span><?php echo $this->__('Continue'); ?></button>    
@@ -153,6 +161,9 @@ if($order_for == 'pickup')
 </script>
 <?php endif; ?>
 
+=======
+<?php endif; ?>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <script type="text/javascript" src="<?php echo $this->getJsUrl('varien/accordion.js') ?>"></script>
 <script type="text/javascript" src="<?php echo $this->getSkinUrl('js/mobiconnectcheckout/opcheckout.js') ?>"></script>
 <ol class="opc mobicheckout" id="checkoutSteps">
@@ -172,10 +183,15 @@ if($order_for == 'pickup')
 </ol>
 <script type="text/javascript">
 //<![CDATA[
+<<<<<<< HEAD
         
     var accordion = new Accordion('checkoutSteps', '.step-title', true);
     <?php if($this->getActiveStep()): ?>
     
+=======
+    var accordion = new Accordion('checkoutSteps', '.step-title', true);
+    <?php if($this->getActiveStep()): ?>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     accordion.openSection('opc-<?php echo $this->getActiveStep() ?>');
     <?php endif ?>
     var checkout = new Checkout(accordion,{
@@ -186,9 +202,20 @@ if($order_for == 'pickup')
     );
 
 
+<<<<<<< HEAD
 
   document.getElementById('opc-shipping_method').style.display = 'none';
 
+=======
+  //document.getElementById('opc-shipping_method').style.display = 'none';
+
+
+  //jQuery('#opc-shipping').show();
+
+  document.getElementById('opc-shipping_method').style.display = 'none';
+
+  //jQuery('input[name="billing[use_for_shipping]"]').parent().hide();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
   jQuery('input[name="billing[use_for_shipping]"]').change(function() {
   var hideship = this.value;
   if(hideship == 0)
@@ -231,7 +258,11 @@ if($order_for == 'pickup')
   	}
   }
 
+<<<<<<< HEAD
   
+=======
+  //jQuery('#checkoutSteps').on('click','button[onclick="billing.save()"]',function() {
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
    jQuery('button[onclick="billing.save()"]').click(function() {
 
 
@@ -264,10 +295,19 @@ if($order_for == 'pickup')
   	 
   	 if( jQuery('input[name="shipping_method"]').length )         // use this if you are using class to check
   	 {
+<<<<<<< HEAD
   		
   		if (checkout.loadWaiting!=false)
   	 	{
   	 
+=======
+  		// alert("fkj");
+  		//console.log("test");
+  		if (checkout.loadWaiting!=false)
+  	 	{
+  	 	//alert("hyhyh");
+  	 	//console.log("inside loadcc waiting");
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
   	 	setTimeout(test,600);
   	 	}
   		else{
@@ -291,6 +331,7 @@ if($order_for == 'pickup')
    }
 //]]>
 </script>
+<<<<<<< HEAD
 
 <script type="text/javascript">
     jQuery(window).on('load', function(){
@@ -316,3 +357,5 @@ if($order_for == 'pickup')
         return false;
     }
 </script>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b

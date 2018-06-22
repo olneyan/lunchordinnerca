@@ -40,7 +40,11 @@ jQuery("#rest_name").keyup(function(){
 	if(string.length > 1){
 		req = jQuery.ajax({
 			type: "POST",
+<<<<<<< HEAD
 			url: "<?php echo Mage::getUrl('csmarketplace/search/suggestion'); ?>",
+=======
+			url: "<?php echo Mage::getBaseUrl().'csmarketplace/search/suggestion'?>",
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 			data: {name: string},
 			success: function(html){
 				if(html.length !=0)

@@ -28,7 +28,11 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
     protected function _initVendor() {
         Mage::dispatchEvent('csmarketplace_controller_vshops_init_before', array(
             'controller_action' => $this
+<<<<<<< HEAD
             ));
+=======
+        ));
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
         if (!Mage::helper('csmarketplace/acl')->isEnabled())
             return false;
@@ -52,7 +56,11 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
             Mage::dispatchEvent('csmarketplace_controller_vshops_init_after', array(
                 'vendor' => $vendor,
                 'controller_action' => $this
+<<<<<<< HEAD
                 ));
+=======
+            ));
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         } catch (Mage_Core_Exception $e) {
             Mage::logException($e);
             return false;
@@ -64,6 +72,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
     /**
      * Vendor Shop list action
      */
+<<<<<<< HEAD
     public function getlocationAction() {
        /* if(!empty($_POST['latitude']) && !empty($_POST['longitude'])){
 //Send request and receive json data by latitude and longitude
@@ -125,6 +134,9 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
        // die();
         $address =$parames['rest'];
         Mage::getSingleton('core/session')->setSearchaddress($address);
+=======
+    public function indexAction() {
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         if (!Mage::getStoreConfig('ced_csmarketplace/general/shopurl_active')) {
             $this->_redirect('/');
             return;
@@ -151,6 +163,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
     }
 
     public function setInformation() {
+<<<<<<< HEAD
 
         $this->_vendorCollection = Mage::getResourceModel('csmarketplace/vendor_collection')
         ->addAttributeToSelect('*')
@@ -160,6 +173,39 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
             'delivery_radius'
             ), 'left')
         ->addAttributeToFilter('status', array('eq' => Ced_CsMarketplace_Model_Vendor::VENDOR_APPROVED_STATUS));
+=======
+        // $vendorIds = array();
+        // $model = Mage::getModel('csmarketplace/vshop')->getCollection()->addFieldToFilter('shop_disable', array(
+        //     'eq' => Ced_CsMarketplace_Model_Vshop::DISABLED
+        // ));
+        // if (count($model) > 0) {
+        //     foreach ($model as $row) {
+        //         $vendorIds [] = $row->getVendorId();
+        //     }
+        // }
+
+
+        // $categoryCollection =  Mage::getModel('catalog/category')
+        //     ->getCollection()
+        //     ->addAttributeToFilter('entity_id', array('gt' => 4));
+
+        // Zend_Debug::dump(get_class_methods(get_class($categoryCollection)));
+        // Zend_Debug::dump($categoryCollection->getFilter());
+        // die;
+
+
+        $this->_vendorCollection = Mage::getResourceModel('csmarketplace/vendor_collection')
+            ->addAttributeToSelect('*')
+            ->addAttributeToSelect(array(
+                'store_latitude',
+                'store_longitude',
+                'delivery_radius'
+            ), 'left')
+            ->addAttributeToFilter('status', array('eq' => Ced_CsMarketplace_Model_Vendor::VENDOR_APPROVED_STATUS));
+
+//        echo($this->_vendorCollection->getSelect());
+        
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
         $sortBy = $this->getRequest()->getQuery('sortby', 'distance');
         $sortDir = $this->getRequest()->getQuery('sortdir', 'asc');
@@ -168,17 +214,59 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
         } else {
             $this->_vendorCollection->setOrder($sortBy, $sortDir);
         }
+<<<<<<< HEAD
+=======
+        
+//        Zend_Debug::dump($this->_vendorCollection->getData());
+//        die;
+        
+
+        
+        
+        
+        // Zend_Debug::dump(
+        //     get_class_methods(get_class($this->_vendorCollection))
+        // );
+        // Zend_Debug::dump($this->_vendorCollection);
+        // Zend_Debug::dump($this->_vendorCollection->getData());
+        // die;
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
         $this->_vendorCollection->joinTable(
             array('vshop'=> 'mg_ced_csmarketplace_vendor_shop'), 
             'vendor_id=entity_id', 
             array('shop_disable'=>'shop_disable')
+<<<<<<< HEAD
             );
 
         $this->_vendorCollection->addFilterToMap('distance', 'e.distance');
         $this->_vendorCollection->addFilterToMap('shop_disable', 'vshop.shop_disable');
         $this->_vendorCollection->addFieldToFilter('shop_disable', array('eq' => 1));
         
+=======
+        );
+
+        // $this->_vendorCollection->_map['fields']['shop_disable'] = 'vshop.shop_disable';
+        $this->_vendorCollection->addFilterToMap('distance', 'e.distance');
+        $this->_vendorCollection->addFilterToMap('shop_disable', 'vshop.shop_disable');
+        $this->_vendorCollection->addFieldToFilter('shop_disable', array('eq' => 1));
+//        $this->_vendorCollection->addFieldToFilter('entity_id', array('in' => [10, 11]));
+
+
+        
+        
+        // ->addAttributeToFilter();
+        // ->where("`vshop`.`shop_disable` != " . Ced_CsMarketplace_Model_Vshop::DISABLED);
+
+
+        // if (count($vendorIds) > 0) {
+        //     $this->_vendorCollection = $this->_vendorCollection->addAttributeToFilter('entity_id', array(
+        //         'nin' => $vendorIds
+        //     ));
+        // }
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         $char = $this->getRequest()->getParam('char');
         if (strlen($char)) {
             $this->_vendorCollection->addAttributeToFilter('public_name', array('like' => '%' . $char . '%'));
@@ -191,6 +279,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
 
         
         $rest = $this->getRequest()->getParam('rest');
+<<<<<<< HEAD
         //echo "<pre>";
         //print_r($rest);
         //die();
@@ -211,6 +300,19 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                 $address_url = "https://maps.google.com/maps/api/geocode/json?address=$origin&sensor=false&key=AIzaSyCjvXmbMif9YChsxyB9QxMReWZE5SjpUbs";
                 //print_r($address_url);
 
+=======
+        $validIds = [];
+        $disatanceArray = [];
+        if (strlen($rest)) {
+            //echo $apikey; die("dfk");
+            $origin = str_replace(' ', '', $rest);
+
+            $geocodeCacheId = 'geocode_cache'; //unique id for your cache data
+//                        Mage::app()->removeCache($geocodeCacheId);
+            $geocodeCollection = unserialize(Mage::app()->loadCache($geocodeCacheId));
+            if (!$geocodeCollection || (is_array($geocodeCollection) && !array_key_exists($origin, $geocodeCollection) && Mage::app()->useCache('collections'))) {
+                $address_url = "http://maps.google.com/maps/api/geocode/json?address=$origin&sensor=false";
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $address_url);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -220,6 +322,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                 $response = curl_exec($ch);
                 curl_close($ch);
                 $response_a = json_decode($response);
+<<<<<<< HEAD
 
                 $resp_json = file_get_contents($address_url);
 
@@ -233,13 +336,22 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                 //echo isset($resp['results'][0]['geometry']['location']['lat'];
                  //die();
 
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                 $tags = array('collections'); //cache tags will be explain later in detail
                 $lifetime = false; //false means infinity, or you can specify number of seconds
                 $priority = 8; // number between 0-9, used by few backend cache models
                 $geocodeCollection[$origin] = array(
+<<<<<<< HEAD
                     'lat' => $resp['results'][0]['geometry']['location']['lat'],
                     'lon' => $resp['results'][0]['geometry']['location']['lng']
                     );
+=======
+                    'lat' => $response_a->results[0]->geometry->location->lat,
+                    'lon' => $response_a->results[0]->geometry->location->lng
+                );
+//                            Zend_Debug::dump($response_a->status);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                 if ("OK" === $response_a->status) {
                     Mage::app()->saveCache(serialize($geocodeCollection), $geocodeCacheId, $tags, $lifetime, $priority);
                 }
@@ -248,6 +360,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
             $response_a = $geocodeCollection[$origin];
             $lat1 = $response_a['lat'];
             $lon1 = $response_a['lon'];
+<<<<<<< HEAD
             //die();
 
             
@@ -312,6 +425,37 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                         } else { // defaults to K
                             $Adist = $miles * 1.609344;
 
+=======
+            
+            if (!is_null($lat1) && !is_null($lon1)) {
+//            if (1!==1) {
+                Mage::register('got_geo_codes', true);
+                $this->_vendorCollection->getSelect()
+                    ->columns(array(
+                        'distance' => new Zend_Db_Expr(
+                            "round(((degrees(acos(sin(RADIANS($lat1)) * sin(RADIANS(`at_store_latitude`.`value`)) 
+                                + cos(RADIANS($lat1)) * cos(RADIANS(`at_store_latitude`.`value`)) 
+                                * cos(RADIANS($lon1 - `at_store_longitude`.`value`)))) * 60 * 1.5515) * 1.609344), 2)"
+                        )
+                ));
+                
+                $i = 0;
+                if ($lat1) {
+                    foreach ($this->_vendorCollection->getData() as $val) {
+                        $lat2 = $val['store_latitude'];
+                        $lon2 = $val['store_longitude'];
+                        if (!$lat2) { continue; }
+                        $unit = 'K';
+                        $theta = $lon1 - $lon2;
+                        $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) + cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
+                        $dist = acos($dist);
+                        $dist = rad2deg($dist);
+                        //$miles = $dist * 60 * 1.4915; 1.1515
+                        $miles = $dist * 60 * 1.5515;
+                        $unit = strtoupper($unit);
+                        if ($unit == "K") {
+                            $Adist = $miles * 1.609344;
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                             if ($Adist <= $val['delivery_radius']) {
                                 $validIds [] = $val['entity_id'];
                                 $disatanceArray [$i] ['id'] = $val['entity_id'];
@@ -321,6 +465,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                         }
                     }
                 }
+<<<<<<< HEAD
                 //asort($validIds);
                 //print_r($validIds);
                 //die();
@@ -329,6 +474,14 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
             } else {
                 Mage::register('got_geo_codes', false);
                 $this->_vendorCollection->getSelect()->columns(array('distance' => new Zend_Db_Expr(0)));
+=======
+            } else {
+                Mage::register('got_geo_codes', false);
+//                $this->_redirect("*/*/*", $this->getRequest()->getQuery());
+//                exit;
+                
+                $this->_vendorCollection->getSelect()->columns(array('distance' => new Zend_Db_Expr("null")));
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                 $i = 0;
                 foreach ($this->_vendorCollection->getData() as $val) {
                     $validIds [] = $val['entity_id'];
@@ -336,6 +489,7 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                     $disatanceArray [$i] ['distance'] = "N/A";
                     $i++;
                 }
+<<<<<<< HEAD
                 asort($validIds);
                 $this->_vendorCollection->addFieldToFilter('entity_id', array('in' => $validIds));
             }
@@ -352,11 +506,83 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
                 ));
         }
         
+=======
+            }
+            asort($validIds);
+            $this->_vendorCollection->addFieldToFilter('entity_id', array('in' => $validIds));
+        }
+
+        // if (strlen($rest)) {
+            // $vcollection = Mage::getModel('csmarketplace/vendor')
+            //         ->getCollection()
+            //         ->addAttributeToSelect('*')
+            //         ->addAttributeToFilter('status', array('eq' => Ced_CsMarketplace_Model_Vendor::VENDOR_APPROVED_STATUS))
+            //         ->addAttributeToFilter('entity_id', ['in' => $validIds]);
+        // }
+
+        // $fgroup = $this->getRequest()->getParam('fgroup');
+        // if (strlen($fgroup)) {
+            // $vColllection = Mage::getModel('csmarketplace/vendor')
+            //         ->getCollection()
+            //         ->addAttributeToSelect('*')
+            //         ->addAttributeToFilter('status', array('eq' => Ced_CsMarketplace_Model_Vendor::VENDOR_APPROVED_STATUS))
+            //         ->addAttributeToFilter('entity_id', ['in' => $validIds]);
+            // $ids = [];
+            // $validId = [];
+            // foreach ($vColllection as $key => $val) {
+            //     $ids [] = $val->getId();
+            // }
+            // for ($i = 0; $i < count($ids); $i ++) {
+            //     $fGroup = Mage::getModel('csmarketplace/vendor')->load($ids [$i])->getFoodGroup();
+            //     $fGroup = explode(',', $fGroup);
+            //     if (in_array($fgroup, $fGroup)) {
+            //         $validId [] = $ids [$i];
+            //     }
+            // }
+            // $vcollection->addFieldToFilter('entity_id', array('in' => $validId));
+
+            // $j = 0;
+            // foreach ($disatanceArray as $k => $v) {
+            //     if (!in_array($v['id'], $validId)) {
+            //         unset($disatanceArray[$j]);
+            //     }
+            //     $j++;
+            // }
+            // $disatanceArray = array_values($disatanceArray);
+        // }
+        if (!Mage::helper('csmarketplace')->isSharingEnabled()) {
+            $this->_vendorCollection->addAttributeToFilter('website_id', array(
+                'eq' => Mage::app()->getStore()->getWebsiteId()
+            ));
+        }
+
+
+        //         $this->_vendorCollection->load();
+        // var_dump($this->_vendorCollection->count());
+        // $this->_vendorCollection->getSelect()->assemble();
+        // Zend_Debug::dump($this->_vendorCollection->getData());
+        // var_dump($this->_vendorCollection->count());
+//        echo $this->_vendorCollection->getSelect(true);
+        // Zend_Debug::dump($this->_vendorCollection);
+
+        // die;
+
+
+
+//        Zend_Debug::dump($this->_vendorCollection->getSize(), "Get Size: ");
+//        Zend_Debug::dump($this->_vendorCollection->getSize(), "Count: ");
+//        var_dump(count($this->_vendorCollection->loadData()));
+//        die;
+
+
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         if (strlen($rest) == 1) {
             Mage::register('vshop_lists', [
                 'vendor' => '',
                 'distance' => $disatanceArray,
                 'validIds' => $validIds
+<<<<<<< HEAD
                 ]);
         } elseif (strlen($rest) && !count($validIds)) {
          Mage::register('vshop_lists', [
@@ -378,11 +604,41 @@ class Ced_CsMarketplace_VshopsController extends Mage_Core_Controller_Front_Acti
             ]);
     }
 }
+=======
+            ]);
+        // } elseif (strlen($rest) && !count($validIds)) {
+            // Mage::register('vshop_lists', [
+            //     'vendor' => '',
+            //     'distance' => $disatanceArray,
+            //     'validIds' => $validIds
+            // ]);
+        // } elseif (strlen($rest)) {
+            // Mage::register('vshop_lists', [
+            //     'vendor' => $vcollection,
+            //     'distance' => $disatanceArray,
+            //     'validIds' => $validIds
+            // ]);
+        } else {
+            // var_dump($this->_vendorCollection->count());
+            Mage::register('vshop_lists', [
+                'vendor' => $this->_vendorCollection,
+                'distance' => $disatanceArray,
+                'validIds' => $validIds
+            ]);
+        }
+        // echo $this->_vendorCollection->getSelect(true);
+    }
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
     /**
      * Vendor Shop view action
      */
     public function viewAction() {
+<<<<<<< HEAD
+=======
+//            die(__METHOD__);
+//		Mage::app()->cleanCache();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         if (!Mage::getStoreConfig('ced_csmarketplace/general/shopurl_active')) {
             $this->_redirect('/');
             return;

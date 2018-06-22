@@ -23,7 +23,11 @@ function captureVScreen(){
 	  var data = canvas.toDataURL();
 	  if(isCedAdmin) document.getElementById("activity-loading-debug").style.display = 'none';
 	  
+<<<<<<< HEAD
 	   new Ajax.Request(baseUrl+"lodmarketplace/vdebug/captureScreenShot", {
+=======
+	   new Ajax.Request(baseUrl+"csmarketplace/vdebug/captureScreenShot", {
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
            method: 'Post',
            parameters: {"data":data},
            onComplete: function(response) {

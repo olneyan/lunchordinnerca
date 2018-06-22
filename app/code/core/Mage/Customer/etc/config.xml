@@ -102,6 +102,7 @@
                     <mapped>1</mapped>
                 </firstname>
                 <middlename>
+<<<<<<< HEAD
                     <billing>0</billing>
                     <shipping>0</shipping>
                     <mapped>0</mapped>
@@ -111,6 +112,17 @@
                     <shipping>0</shipping>
                     <required>0</required>
                     <mapped>0</mapped>
+=======
+                    <billing>1</billing>
+                    <shipping>1</shipping>
+                    <mapped>1</mapped>
+                </middlename>
+                <lastname>
+                    <billing>1</billing>
+                    <shipping>1</shipping>
+                    <required>1</required>
+                    <mapped>1</mapped>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                 </lastname>
                 <suffix>
                     <billing>1</billing>

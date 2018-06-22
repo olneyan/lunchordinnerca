@@ -4,7 +4,11 @@
 /* @var $catalogSearchHelper Mage_Catalogsearch_Helper_Data */
 $catalogSearchHelper =  $this->helper('catalogsearch');
 $currentUrl = Mage::helper('core/url')->getCurrentUrl();
+<<<<<<< HEAD
 $addressPlaceholder = Mage::getStoreConfig('lod_configs/address_search_bar/placeholder');
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
 if (strpos($currentUrl, 'vendor-shop') === false) {
 	?>
@@ -13,8 +17,13 @@ if (strpos($currentUrl, 'vendor-shop') === false) {
    
 	  <div class="input-box"  id=rests_suggets>
       <b> <?php // echo $this->__('Enter your Address in the search bar');?></b>
+<<<<<<< HEAD
         <input name="rest" id="rest_names1" type="search" value="<?php echo $getSession = Mage::getSingleton('core/session')->getSearchaddress(); ?>" class="search input-text required-entry" autocomplete="off" 
          placeholder="<?php echo $this->quoteEscape($this->__($addressPlaceholder)) ?>" />
+=======
+        <input name="rest" id="rest_names1" type="search" value="" class="search input-text required-entry" autocomplete="off" 
+         placeholder="<?php echo $this->quoteEscape($this->__('E.g. 123 Queen Street East, Toronto, ON')) ?>" />
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         <button id="findfood" type="submit" title="<?php echo $this->quoteEscape($this->__('Lets Find Food')) ?>" class="button search-button"><span><span><?php echo $this->__('Lets Find Food') ?></span></span></button>
     </div>
         <script type="text/javascript">
@@ -23,7 +32,11 @@ if (strpos($currentUrl, 'vendor-shop') === false) {
      
     //]]>
         </script>
+<<<<<<< HEAD
       <!--  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCITgXxySbOP2A0OWtAZQ803TIGGgUpUEA" type="text/javascript"></script>
+=======
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCITgXxySbOP2A0OWtAZQ803TIGGgUpUEA" type="text/javascript"></script>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         <script>
         google.maps.event.addDomListener(window, 'load', initMap);
         function initMap() {
@@ -34,7 +47,11 @@ if (strpos($currentUrl, 'vendor-shop') === false) {
                 document.getElementById('findfood').click();
             });
         }
+<<<<<<< HEAD
             </script> -->
+=======
+            </script>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     
 </form>
 	
@@ -63,6 +80,7 @@ else{?>
 
 ?>
 
+<<<<<<< HEAD
 
 <!--<script>
   jQuery(document).ready(function() {
@@ -81,11 +99,14 @@ else{?>
   });
 </script>   -->
 
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <script>
 var req = null;
 var index = 1;
 jQuery('input').keyup(function(e)
 {  
+<<<<<<< HEAD
 	//var key = e.keyCode;
  // if ( key != 40 && key != 38 )
   //{
@@ -98,6 +119,19 @@ jQuery('input').keyup(function(e)
 		req = jQuery.ajax({
 			type: "POST",
 			url: "<?php echo Mage::getUrl('csmarketplace/search/suggestion'); ?>",
+=======
+	var key = e.keyCode;
+  if ( key != 40 && key != 38 )
+  {
+//jQuery("#rest_names").keyup(function(){
+    window.index= 1;
+	var string = jQuery("#rest_names").val();
+	if (req != null) req.abort();
+	if(string.length > 1){
+		req = jQuery.ajax({
+			type: "POST",
+			url: "<?php echo Mage::getBaseUrl().'csmarketplace/search/suggestion'?>",
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 			data: {name: string},
 			success: function(html){
 				if(html.length !=0)
@@ -118,10 +152,17 @@ jQuery('input').keyup(function(e)
 		jQuery(".rest_suggs").remove();
 	}	
  //});
+<<<<<<< HEAD
   //}
 });
 function pickval(id) {
 jQuery("#rest_names1").val(id);
+=======
+  }
+});
+function pickval(id) {
+jQuery("#rest_names").val(id);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	jQuery(".rest_suggs").remove();
 	jQuery("#search_forms").submit();
 }	

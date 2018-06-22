@@ -432,12 +432,23 @@ else{
 }
 //echo $delivery_date; echo "shikha";
 ?>
+<<<<<<< HEAD
 <form style="display: none" id="linkCheckoutForm" method="post" action="<?php echo $this->getCheckoutUrl(); ?>">
     <input id="cart_times" type="hidden" name="time" value="<?php echo $time; ?>"/>
     <input id="cart_order_for" type="hidden" name="order_for" value="<?php echo $order_for; ?>" />
     <input id="cart_delivery_date" type="hidden" value="<?php echo $delivery_date; ?>"  name="delivery_date"  />
     <input id="cart_delivery_time" type="hidden" value="<?php echo $delivery_time; ?>" name="delivery_time"  />
 </form>
+=======
+<form style="display: none"id="cart_post_to_onepage" method="post" action=<?php echo $this->getCheckoutUrl().'/'; ?>></form>
+<div style="display: none" id="cart_form">
+<input id="cart_times" type="text" name="time" value="<?php echo $time; ?>"/>
+<input id="cart_order_for" type="text" name="order_for" value="<?php echo $order_for; ?>" />
+
+<input id="cart_delivery_date" type="text" value="<?php echo $delivery_date; ?>"  name="delivery_date"  />
+<input id="cart_delivery_time" type="text" value="<?php echo $delivery_time; ?>" name="delivery_time"  />
+</div>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
 
 
@@ -532,8 +543,13 @@ function cart_onepage()
    
     jQuery("#cart_delivery_date").attr("value",date);
     jQuery("#cart_delivery_time").attr("value",time);
+<<<<<<< HEAD
 //	jQuery('#linkCheckoutForm').append(jQuery('#cart_form').html());
 	jQuery('#linkCheckoutForm').submit();
+=======
+	jQuery('#cart_post_to_onepage').append(jQuery('#cart_form').html());
+	jQuery('#cart_post_to_onepage').submit();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	
 }
 </script>

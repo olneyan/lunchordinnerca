@@ -29,14 +29,22 @@
 	</modules>
 	<frontend>
 		<secure_url>
+<<<<<<< HEAD
             <csmarketplace>/lodmarketplace/</csmarketplace>
+=======
+            <csmarketplace>/csmarketplace/</csmarketplace>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         </secure_url>
 		<routers>
 			<csmarketplace>
 				<use>standard</use>
 				<args>
 					<module>Ced_CsMarketplace</module>
+<<<<<<< HEAD
 					<frontName>lodmarketplace</frontName>
+=======
+					<frontName>csmarketplace</frontName>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 				</args>
 			</csmarketplace>
 			
@@ -158,18 +166,30 @@
 		<rewrite>
 			<cedcommerce_fancy_url>
 				<from><![CDATA[/cedcommerce\/main\/(.*)/i]]></from>
+<<<<<<< HEAD
 				<to><![CDATA[lodmarketplace/main/$1]]></to>
+=======
+				<to><![CDATA[csmarketplace/main/$1]]></to>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 				<complete>1</complete>
 			</cedcommerce_fancy_url>
 			<csmarketplace_rewrite_shop_url>
 				<from><![CDATA[/\/restaurant\/(.*)/i]]></from>
+<<<<<<< HEAD
 				<to><![CDATA[lodmarketplace/vshops/view/shop_url/$1/]]></to>
+=======
+				<to><![CDATA[csmarketplace/vshops/view/shop_url/$1/]]></to>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 				<complete>1</complete>
 			</csmarketplace_rewrite_shop_url>
 			
             <ced_csmarketplace_checkout_onepage>
                 <from><![CDATA[#^/checkout/onepage/#]]></from>
+<<<<<<< HEAD
                 <to>/lodmarketplace/checkout_onepage/</to>
+=======
+                <to>/csmarketplace/checkout_onepage/</to>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             </ced_csmarketplace_checkout_onepage>
         
         </rewrite>

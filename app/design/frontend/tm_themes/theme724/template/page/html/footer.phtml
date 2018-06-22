@@ -24,6 +24,7 @@
  * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  */
 ?>
+<<<<<<< HEAD
 <style>
 .footericon{
     width: 18%;
@@ -36,6 +37,8 @@
 }
 }
 </style>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <?php //echo $this->getChildHtml('ced_hssocialmedia_index');   ?>
 <div class="footer-container">
     <div class="container">
@@ -60,7 +63,11 @@
                                             <?php echo $this->__('Want to become an partner ?') ?>
                                         </p>
                                         <div class="become-an-vendor">
+<<<<<<< HEAD
                                             <a href="<?php echo $this->getUrl('csmarketplace/account/login'); ?>">
+=======
+                                            <a href="<?php echo $this->getBaseUrl() . 'csmarketplace/account/login/'; ?>">
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                 <img alt="become vendor" src="<?php echo $this->getSkinUrl('images/footer-become-vendor.png'); ?>">
                                             </a>
                                         </div>
@@ -74,7 +81,11 @@
                                 <h4>Important links</h4>
                                 <div class="footer-col-content">
                                     <?php echo $this->getChildHtml('cms_footer_links') ?>
+<<<<<<< HEAD
                                     <?php echo $this->getChildHtml('footer_links') ?>
+=======
+                                    <?php //echo $this->getChildHtml('footer_links') ?>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                 </div>
                             </div>
                         </div>
@@ -88,6 +99,11 @@
                                     </p>
                                     <?php echo $this->getChildHtml('footer.newsletter'); ?>
                                 </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                 <?php //echo $this->getChildHtml('tm_facebook_like_footer') ?>
                                 <?php //echo $this->getChildHtml('tm_instagram_user') ?>
                                 <?php // echo $this->getChildHtml('paypal.partner.right.logo'); ?>
@@ -98,6 +114,7 @@
 
                     <div class="bottom-footer">
                         <?php echo $this->getChildHtml('footer_list') ?>
+<<<<<<< HEAD
                         
                         
                         <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('facebook_fanbox')->toHtml() ?>
@@ -120,23 +137,41 @@
                             </div>
                         </div>
                     </address>
+=======
+                        <?php //echo $this->getLayout()->createBlock('cms/block')->setBlockId('facebook_fanbox')->toHtml() ?>
+                    </div>
+                    <address><?php echo '© Copyright ' . date("Y"). '. lunchordinner All Rights Reserved'; ?></address>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                     <?php echo $this->getChildHtml('store_switcher') ?>
                     <?php
                     $current_page = Mage::app()->getFrontController()->getRequest()->getRouteName();
                     if ($current_page == 'cms'):
                     //echo 'More Magento Food Store Templates at <a rel="nofollow" href="http://www.templatemonster.com/category/food-store-magento-themes/" target="_blank">TemplateMonster.com</a>';
+<<<<<<< HEAD
                         endif;
+=======
+                    endif;
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                     ?>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <script type="text/javascript">
     jQuery(document).ready(function () {
         var ww = jQuery(window).width();
         if (ww < 768) {
             jQuery('.footer-col-content').css('display', 'none');
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             jQuery('.footer h4').on('click', function (e) {
                 jQuery(this).toggleClass('active');
                 if (jQuery(this).siblings('.footer-col-content').hasClass('open')) {
@@ -149,10 +184,19 @@
                 }
             });
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         jQuery(window).resize(function () {
             footersocialshare();
         });
         footersocialshare();
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     });
     function footersocialshare() {
         var ww1 = jQuery(window).width();
@@ -161,6 +205,10 @@
         }
     }
 </script>
+<<<<<<< HEAD
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <!-- script to remove fix-me and fix-me-two class when footer comes-->
 <script type="text/javascript">
     var remfix = jQuery('.footer-container').offset().top; //initial position from top

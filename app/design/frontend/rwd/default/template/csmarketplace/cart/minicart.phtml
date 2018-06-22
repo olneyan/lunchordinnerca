@@ -532,6 +532,7 @@ $showNow = 'No';
                 <p><?php echo Mage::getStoreConfig('ced_vproducts/general/dietary_info'); ?></p>
             </div>
         </div>
+<<<<<<< HEAD
  <div class="minicart-actions">
 <?php 
 //$carturl = Mage::helper('checkout/cart')->getCartUrl();
@@ -558,6 +559,9 @@ $currentUrl = Mage::helper('core/url')->getCurrentUrl();
 </form>
 <?php } ?>
    </div>
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         <div class="minicart-actions">
     <?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
                 <ul class="checkout-types minicart">
@@ -574,7 +578,10 @@ $currentUrl = Mage::helper('core/url')->getCurrentUrl();
                href="<?php echo $this->getUrl('checkout/cart'); ?>">
     <?php echo $this->__('View Shopping Cart'); ?>
             </a>
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         </div>
 
 
@@ -611,12 +618,26 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
     $delivery_time = "";
 }
 ?>
+<<<<<<< HEAD
 <form style="display: none" id="minicartCheckoutForm" method="post" action="<?php echo $this->getCheckoutUrl(); ?>">
     <input id="times" type="hidden" name="time" value="<?php echo $time; ?>" />
     <input id="order_for" type="hidden" name="order_for" value="<?php echo $order_for; ?>" />
     <input id="delivery_date" type="hidden" value="<?php echo $delivery_date; ?>" name="delivery_date" />
     <input id="delivery_time" type="hidden" value="<?php echo $delivery_time; ?>" name="delivery_time" />
 </form>
+=======
+
+<form style="display: none" id="post_to_onepage" method="post"
+      action=<?php echo $this->getCheckoutUrl(); ?>></form>
+<div style="display: none" id="form">
+    <input id="times" type="text" name="time" value="<?php echo $time; ?>" />
+    <input id="order_for" type="text" name="order_for"
+           value="<?php echo $order_for; ?>" /> <input id="delivery_date"
+           type="text" value="<?php echo $delivery_date; ?>" name="delivery_date" />
+    <input id="delivery_time" type="text"
+           value="<?php echo $delivery_time; ?>" name="delivery_time" />
+</div>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
 
 
@@ -700,8 +721,13 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
 
         jQuery("#delivery_date").attr("value", date);
         jQuery("#delivery_time").attr("value", time);
+<<<<<<< HEAD
 //        jQuery('#minicartCheckoutForm').append(jQuery('#form').html());
         jQuery('#minicartCheckoutForm').submit();
+=======
+        jQuery('#post_to_onepage').append(jQuery('#form').html());
+        jQuery('#post_to_onepage').submit();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
     }
 
@@ -762,6 +788,7 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
     .btn-edit {
         display: none;
     }
+<<<<<<< HEAD
 </style>
 
 <script type="text/javascript">
@@ -779,3 +806,6 @@ discountForm.submit = function (isRemove) {
 }
 //]]>
 </script>
+=======
+</style>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b

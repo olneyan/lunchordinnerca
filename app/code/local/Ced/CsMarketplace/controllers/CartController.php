@@ -4,6 +4,7 @@ require_once 'Mage/Checkout/controllers/CartController.php';
 
 class Ced_CsMarketplace_CartController extends Mage_Checkout_CartController {
 
+<<<<<<< HEAD
     public function laterorderAction() {
         $params = $this->getRequest()->getParams();
         $indexs = $params['index'];
@@ -306,6 +307,8 @@ class Ced_CsMarketplace_CartController extends Mage_Checkout_CartController {
         echo $options . "<select id='del_time'>";
 
     }
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     public function addAction() {
 
         $cart = $this->_getCart();
@@ -319,8 +322,13 @@ class Ced_CsMarketplace_CartController extends Mage_Checkout_CartController {
                 try {
                     if (isset($params['qty'])) {
                         $filter = new Zend_Filter_LocalizedToNormalized(
+<<<<<<< HEAD
                             array('locale' => Mage::app()->getLocale()->getLocaleCode())
                             );
+=======
+                                array('locale' => Mage::app()->getLocale()->getLocaleCode())
+                        );
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                         $params['qty'] = $filter->filter($params['qty']);
                     }
 
@@ -348,7 +356,11 @@ class Ced_CsMarketplace_CartController extends Mage_Checkout_CartController {
                      * @todo remove wishlist observer processAddToCart
                      */
                     Mage::dispatchEvent('checkout_cart_add_product_complete', array('product' => $product, 'request' => $this->getRequest(), 'response' => $this->getResponse())
+<<<<<<< HEAD
                         );
+=======
+                    );
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
                     if (!$cart->getQuote()->getHasError()) {
                         $message = $this->__('%s was added to your shopping cart.', Mage::helper('core')->htmlEscape($product->getName()));
@@ -382,6 +394,7 @@ class Ced_CsMarketplace_CartController extends Mage_Checkout_CartController {
                     Mage::logException($e);
                 }
                 $response["cart_sidebar"] = $this->getLayout()
+<<<<<<< HEAD
                 ->createBlock('checkout/cart_sidebar')
                 ->setTemplate('csmarketplace/cart/minicart.phtml')
                 ->addItemRender("default", "checkout/cart_item_renderer", "checkout/cart/minicart/default.phtml")
@@ -389,6 +402,15 @@ class Ced_CsMarketplace_CartController extends Mage_Checkout_CartController {
                 ->addItemRender("grouped", "checkout/cart_item_renderer_grouped", "checkout/cart/minicart/default.phtml")
                 ->addItemRender("configurable", "checkout/cart_item_renderer_configurable", "checkout/cart/minicart/default.phtml")
                 ->toHtml();
+=======
+                        ->createBlock('checkout/cart_sidebar')
+                        ->setTemplate('csmarketplace/cart/minicart.phtml')
+                        ->addItemRender("default", "checkout/cart_item_renderer", "checkout/cart/minicart/default.phtml")
+                        ->addItemRender("simple", "checkout/cart_item_renderer", "checkout/cart/minicart/default.phtml")
+                        ->addItemRender("grouped", "checkout/cart_item_renderer_grouped", "checkout/cart/minicart/default.phtml")
+                        ->addItemRender("configurable", "checkout/cart_item_renderer_configurable", "checkout/cart/minicart/default.phtml")
+                        ->toHtml();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
                 $cart = Mage::getSingleton('checkout/session')->getQuote();
                 //$cart->getAllItems() to get ALL items, parent as well as child, configurable as well as it's simple associated item

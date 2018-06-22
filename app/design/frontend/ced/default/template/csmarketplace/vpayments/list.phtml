@@ -134,9 +134,13 @@ $params = Mage::getSingleton('core/session')->getData('payment_filter');
 				<td class="number"><?php echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol().''.$_payment->getNetAmount();  ?></td>
 
 				<td class="pdf_button">
+<<<<<<< HEAD
 	                <span class="button">
                             <a class="link" title="<?php echo $this->__('Invoice') ?>" 
                                 href="<?php echo Mage::getUrl('csmarketplace/vpayments/printinvoice', array('id' => $_payment['id'])); ?>">Print<i style="font-size:15px;" ></i></a>
+=======
+	                <span class="button"><a class="link" title="<?php echo $this->__('Invoice') ?>" href="<?php echo Mage::getBaseUrl().'csmarketplace/vpayments/printinvoice/id/'.$_payment['id'] ?>">Print<i style="font-size:15px;" ></i></a>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	                </span>
 	            </td>
 	            
@@ -155,9 +159,13 @@ $params = Mage::getSingleton('core/session')->getData('payment_filter');
 				<td class="date"><?php echo Mage::app()->getLocale()->currency($_payment->getCurrency())->toCurrency($_payment->getFee());  ?></td>
 				<td class="number"><?php echo Mage::app()->getLocale()->currency($_payment->getCurrency())->toCurrency($_payment->getNetAmount());  ?></td>
 	     		<td class="pdf_button">
+<<<<<<< HEAD
 	                <span class="button">
                             <a class="link" title="<?php echo $this->__('Invoice') ?>" 
                                 href="<?php echo Mage::getUrl('csmarketplace/vpayments/printinvoice', array('id' => $_payment['id'])) ?>">Print<i style="font-size:15px;" ></i></a>
+=======
+	                <span class="button"><a class="link" title="<?php echo $this->__('Invoice') ?>" href="<?php echo Mage::getBaseUrl().'csmarketplace/vpayments/printinvoice/id/'.$_payment['id'] ?>">Print<i style="font-size:15px;" ></i></a>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	                </span>
 	            </td>
 	     		 <td class="a-center view number">

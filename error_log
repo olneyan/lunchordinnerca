@@ -1743,6 +1743,7 @@ Stack trace:
 #2 /home/aather/public_html/lunchordinner.ca/app/code/core/Mage/Core/Model/Layout.php(472): Ced_CsMarketplace_Model_Layout->createBlock('catalog/product...', 'product.info')
 #3 /home/aather/public_html/lunchordinner.ca/app/code/core/Mage/Core/Model/Layout.php(239): Mage_Core_Model_Layout->addBlock('catalog/product...', 'product.info')
 #4 /home/aather/public_html/lunchordinner.ca/app/code/core/Mage/Core/Model/Layout.php(205): Mage_Core_Model_Layout->_generateBlock(Object(Mage_Core_Model_Layout_Element), Object(Mage_Core_Mod in /home/aather/public_html/lunchordinner.ca/app/code/core/Mage/Catalog/Block/Product/View.php on line 56
+<<<<<<< HEAD
 [21-Feb-2018 12:13:21 UTC] PHP Fatal error:  Uncaught Error: Call to a member function toHtml() on boolean in /home/aather/public_html/lunchordinners.com/app/code/local/Ced/CsMarketplace/Block/Adminhtml/Vendor/Entity/Edit/Tabs.php:80
 Stack trace:
 #0 /home/aather/public_html/lunchordinners.com/app/code/core/Mage/Core/Block/Abstract.php(922): Ced_CsMarketplace_Block_Adminhtml_Vendor_Entity_Edit_Tabs->_beforeToHtml()
@@ -2721,3 +2722,5 @@ Stack trace:
 [19-Jun-2018 10:35:47 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF), expecting ',' or ';' in /home/aather/public_html/lunchordinners.com/app/design/frontend/tm_themes/theme724/template/homepage/chinese.phtml on line 283
 [21-Jun-2018 12:39:50 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/aather/public_html/lunchordinners.com/app/code/local/Ced/CsMarketplace/controllers/VshopsController.php on line 84
 [21-Jun-2018 12:40:09 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/aather/public_html/lunchordinners.com/app/code/local/Ced/CsMarketplace/controllers/VshopsController.php on line 84
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b

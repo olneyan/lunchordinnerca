@@ -27,10 +27,13 @@ class Ced_CsMarketplace_IndexController extends Ced_CsMarketplace_Controller_Abs
 			return;
 		}
 	}
+<<<<<<< HEAD
 	public function sendapplinkAction(){
 		$email = $this->getRequest()->getParam('email');
 		print_r($email);
 		echo "hi there";
 		die();
 	}
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 }

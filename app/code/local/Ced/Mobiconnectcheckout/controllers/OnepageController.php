@@ -329,7 +329,11 @@ class Ced_Mobiconnectcheckout_OnepageController extends Mage_Core_Controller_Fro
     public function saveMethodAction()
     {
         if ($this->getRequest()->isPost()) {
+<<<<<<< HEAD
         	$method = $this->getRequest()->getPost('method');
+=======
+            $method = $this->getRequest()->getPost('method');
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             $result = $this->getOnepage()->saveCheckoutMethod($method);
             $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
         }

@@ -328,6 +328,7 @@ background-image: linear-gradient(rgb(0, 150, 136), rgb(0, 150, 136)), linear-gr
 
 .mobiconnectcheckout-onepage-index .opc.mobicheckout .section.allow.saved .step-title .number{
   /*background-color: #AA3A2F !important;*/
+<<<<<<< HEAD
 }
 
 
@@ -349,4 +350,6 @@ background-image: linear-gradient(rgb(0, 150, 136), rgb(0, 150, 136)), linear-gr
     padding-left: 0;
     width: 100%;
   }
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 }

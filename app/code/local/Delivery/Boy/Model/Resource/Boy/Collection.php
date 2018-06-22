@@ -6,6 +6,7 @@ class Delivery_Boy_Model_Resource_Boy_Collection extends Mage_Eav_Model_Entity_C
         $this->_init('delivery_boy/boy');
     }
  
+<<<<<<< HEAD
     
     /**
      * Get SQL for get record count
@@ -33,4 +34,6 @@ class Delivery_Boy_Model_Resource_Boy_Collection extends Mage_Eav_Model_Entity_C
         return $countSelect;
     }
     
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 }

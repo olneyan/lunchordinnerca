@@ -406,8 +406,12 @@ class Ced_CustomApi_Model_Vendor_Api extends Ced_VendorApi_Model_Vendor_Api
 			$profile_url = (isset($vendors[$count]['profile_picture']) && $vendors[$count]['profile_picture']) ? $vendors[$count]['profile_picture']:'';
 
 			$vendors[$count]['profile_picture']=($profile_url=='')? Mage::getBaseUrl():$helper->init($profile_url)->__toString ();
+<<<<<<< HEAD
 			$collection11 = Mage::getModel('csmarketplace/vproducts')->getCollection()->addFieldToFilter('check_status','1')->addFieldToFilter('vendor_id',$vendors[$count]['entity_id']);
 			$vendors[$count]['product_count'] = count($collection11->getData());
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 			//$newurl='';
 			++$count;	
 		}

@@ -922,6 +922,7 @@ h2.product-name a{
 
 }
 
+<<<<<<< HEAD
 
 .ced-shop-menu-category {
     /*margin-bottom: 10px;*/
@@ -936,6 +937,15 @@ h2.product-name a{
   cursor: pointer;
 
   /*font-size: 20px;*/
+=======
+.ced-shop-menu-category > h3 {
+
+  border-bottom: 1px solid #686868;
+
+  cursor: pointer;
+
+  font-size: 20px;
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
   font-weight: bold;
 
@@ -944,6 +954,7 @@ h2.product-name a{
   padding-top: 7px;
 
   position: relative;
+<<<<<<< HEAD
   
   color: #fff;
   
@@ -956,6 +967,11 @@ h2.product-name a{
     padding-bottom: 15px;
 }
 
+=======
+
+}
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 .ced-shop-menu-category > h3::after {
 
   content: '\f107';
@@ -998,14 +1014,19 @@ h2.product-name a{
 
 .ced-shop-menu-content {
 
+<<<<<<< HEAD
 /*  
     border-bottom: 1px solid #dcdcdc;
+=======
+  border-bottom: 1px solid #dcdcdc;
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
   padding-bottom: 5px;
 
   padding-top: 5px;
 
   cursor: pointer;
+<<<<<<< HEAD
 */
   
   flex: 50 0 33%;
@@ -1014,6 +1035,10 @@ h2.product-name a{
 /*.ced-shop-menu-content:hover {
     background-color: #fff;
 }*/
+=======
+
+}
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
 .ced-shop-menu-content .pull-left.left {
 
@@ -1036,11 +1061,19 @@ h2.product-name a{
 .ced-shop-menu-content .pull-right span.price {
   border: 1px solid #333;
   border-radius: 0;
+<<<<<<< HEAD
   /*color: #757575;*/
   display: block;
   font-size: 18px;
   line-height: 35px;
   /*margin-top: 9px;*/
+=======
+  color: #757575;
+  display: block;
+  font-size: 18px;
+  line-height: 35px;
+  margin-top: 9px;
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
   padding: 0 35px 0 15px;
   position: relative;
   width: 150px;
@@ -1425,6 +1458,7 @@ margin-right:5px;
     .sidebar .block-cart {
         position: fixed;
         width: 280px;
+<<<<<<< HEAD
         top: 12.5%;
     }
     
@@ -1469,6 +1503,15 @@ margin-right:5px;
     background-color: #fff;
     border-radius: 3px;
     margin: 2px;
+=======
+        top: 20%;
+    }
+    
+    .ced-shop-menu-content {
+        display: flex;
+    }
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 }
 
 

@@ -17,10 +17,14 @@
   */
 
 ?>
+<<<<<<< HEAD
 <?php 
 $email = $this->getRequest()->getParam('email_id'); 
 
 ?>
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <form id="co-billing-form" action="">
 <fieldset>
     <ul class="form-list">
@@ -98,7 +102,11 @@ $email = $this->getRequest()->getParam('email_id');
                     <div class="field">
                         <label for="billing:email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
                         <div class="input-box">
+<<<<<<< HEAD
                             <input type="text" name="billing[email]" id="billing:email" value="<?php if($email){ echo $email;} else{echo $this->escapeHtml($this->getAddress()->getEmail());} ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
+=======
+                            <input type="text" name="billing[email]" id="billing:email" value="<?php echo $this->escapeHtml($this->getAddress()->getEmail()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->__('Email Address')) ?>" class="input-text validate-email required-entry" />
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                         </div>
                     </div>
         <?php endif; ?>

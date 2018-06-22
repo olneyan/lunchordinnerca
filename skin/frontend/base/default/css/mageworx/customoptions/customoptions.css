@@ -81,9 +81,12 @@
 
 .product-options span.required::after {
     content: "";
+<<<<<<< HEAD
 }
 
 .product-options [type="radio"] {
     width: 20px !important;
     height: 20px !important;
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 }

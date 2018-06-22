@@ -26,12 +26,20 @@ class Delivery_Boy_Block_Adminhtml_Boy_Grid extends Mage_Adminhtml_Block_Widget_
     protected function _prepareCollection()
     {
         /* @var $collection Delivery_Boy_Model_Resource_Boy_Collection */
+<<<<<<< HEAD
         $collection = Mage::getResourceModel('delivery_boy/boy_collection')
                 ->addAttributeToSelect('*');
         $collection->getSelect()->group('e.entity_id');
         $this->setCollection($collection);
         $grid = parent::_prepareCollection();
         return $grid;
+=======
+        $collection = Mage::getModel('delivery_boy/boy')->getCollection()
+                ->addAttributeToSelect(array('firstname', 'lastname', 'email', 'mobile'));
+        
+        $this->setCollection($collection);
+        return parent::_prepareCollection();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     }
 
     /**

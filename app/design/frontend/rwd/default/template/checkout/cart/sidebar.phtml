@@ -31,6 +31,7 @@
  */
 
 ?>
+<<<<<<< HEAD
 <style>
 .sidebar .block-cart #time {
     /* text-align: center; */
@@ -46,6 +47,8 @@
     max-height: 250px;
 }
 </style>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <?php if ($this->getIsNeedToDisplaySideBar()):?>
 <div class="block block-cart">
     <?php $_cartQty = $this->getSummaryCount() ?>
@@ -112,6 +115,7 @@
             $total = $this->getSubtotal();
         }
         $day = Mage::getSingleton('core/date')->date('w');
+<<<<<<< HEAD
          $offset=4*60*60; //converting 4 hours to seconds.
          $dateFormat="H:i"; //set the date format
          $timeNdate=gmdate($dateFormat, time()-$offset);
@@ -119,12 +123,19 @@
          //echo strtotime($timeNdate);
          //echo $time = date('h:i', strtotime("now"));
         //print_r($vendor);
+=======
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         if ($day == 0) {
             $openTime = $vendor ['sun_open_time'];
             $openTime = explode(',', $openTime);
             $openTime = implode(':', $openTime);
+<<<<<<< HEAD
             $openTime = date('h:i', strtotime($openTime));
            
+=======
+            $openTime = date("H:i", strtotime($openTime));
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
             $closeTime = $vendor ['sun_close_time'];
             $closeTime = explode(',', $closeTime);
@@ -195,6 +206,7 @@
     ?>
         
         
+<<<<<<< HEAD
    
     </div>
 </div>
@@ -202,6 +214,9 @@
 
 <div class="block block-cart" style="top: 58.5%;background-color: #f4f4f4;padding: 15px;">
      <?php if (!isset($vendor['delivery']) || empty($vendor['delivery'])) { ?>
+=======
+        <?php if (!isset($vendor['delivery']) || empty($vendor['delivery'])) { ?>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             <div class="order_for">
                 <span> <?php echo __('Order For'); ?></span>
                 <div class="delivery-buttons">
@@ -295,7 +310,11 @@
         // echo $curDate; die("fglk");
         // $curDate = '11:30';
 
+<<<<<<< HEAD
            $curDate1 = explode(':', $curDate); {
+=======
+    $curDate1 = explode(':', $curDate); {
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             if ($curDate1 [0] == '00') {
                 $curDate = "24:" . $curDate1 [1];
             }
@@ -437,6 +456,7 @@
             '23:45' => '23:45'
         );
         ?>
+<<<<<<< HEAD
 <?php
                 $timeleft = 0;
                 foreach ($timingArray as $val) {
@@ -470,6 +490,8 @@
         <?php
     }
     ?>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
         <div style="display: none" id="time">
             </span><select id="del_date">
@@ -485,13 +507,18 @@
                 }
                 for ($i = $j; $i < $j + 7; $i ++) {
                     ?>
+<<<<<<< HEAD
                     
+=======
+                    <option>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                         <?php
                         $m = date("m"); // Month value
 
                         $de = date("d"); // today's date
 
                         $y = date("Y"); // Year value
+<<<<<<< HEAD
                         if($datetimleft==0){
                             $datetimleft++;
                         }
@@ -504,10 +531,17 @@
                         
                         ?>
                     
+=======
+
+                        echo strtoupper(date('d-m-y:D', mktime(0, 0, 0, $m, ($de + $i), $y)));
+                        ?>
+                    </option>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         <?php
     }
     ?>
             </select>
+<<<<<<< HEAD
 </div><div style="display: none;" id="timesch">
             <select id="del_time" style="margin-top: 8px;">
                 <?php
@@ -520,6 +554,13 @@
                     //echo $closeTime;
                     //date("h:i a", strtotime($openTime));
                     //date("h:i a", strtotime($closeTime));
+=======
+
+            <select id="del_time">
+                <?php
+                foreach ($timingArray as $val) {
+                    $now = strtotime($val);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                     if ($openTime > $closeTime) {
                         if ($now >= $openTime || $now < $closeTime) {
                             
@@ -532,6 +573,7 @@
                         continue;
                     }
                     ?>
+<<<<<<< HEAD
                 <?php
                 if($datetimleft==0){ ?>
                     <option value="<?php echo date("h:i a", strtotime($val)); ?>"><?php echo date("h:i a", strtotime($val)); ?></option>
@@ -541,12 +583,16 @@
                     <option value="<?php echo date("h:i a", strtotime($val)); ?>"><?php echo date("h:i a", strtotime($val)); ?></option>
                <?php  }   
               } ?>
+=======
+                    <option><?php echo date("h:i a", strtotime($val)); ?></option>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         <?php
     }
     ?>
             </select>
         </div>
         
+<<<<<<< HEAD
 <script type="text/javascript">
     jQuery(document).ready(function() {
     jQuery(document).on('change', '#del_date', function() {
@@ -562,6 +608,8 @@
     });
   });
 </script>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
         
         
@@ -591,12 +639,26 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
     $delivery_time = "";
 }
 ?>
+<<<<<<< HEAD
 <form style="display: none" id="checkoutForm" method="post" action="<?php echo $this->getCheckoutUrl(); ?>">
     <input id="times" type="hidden" name="time" value="<?php echo $time; ?>" />
     <input id="order_for" type="hidden" name="order_for" value="<?php echo $order_for; ?>" /> 
     <input id="delivery_date" type="hidden" value="<?php echo $delivery_date; ?>" name="delivery_date" />
     <input id="delivery_time" type="hidden" value="<?php echo $delivery_time; ?>" name="delivery_time" />
 </form>
+=======
+
+<form style="display: none" id="post_to_onepage" method="post"
+      action=<?php echo $this->getCheckoutUrl(); ?>></form>
+<div style="display: none" id="form">
+    <input id="times" type="text" name="time" value="<?php echo $time; ?>" />
+    <input id="order_for" type="text" name="order_for"
+           value="<?php echo $order_for; ?>" /> <input id="delivery_date"
+           type="text" value="<?php echo $delivery_date; ?>" name="delivery_date" />
+    <input id="delivery_time" type="text"
+           value="<?php echo $delivery_time; ?>" name="delivery_time" />
+</div>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
 <?php // echo Mage::getUrl('skin') . 'frontend/tm_themes/theme724/js/jquery.slimscroll.min.js' ?>
 <!--<script src=""></script>-->
@@ -631,7 +693,10 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
     
     function showTime(id) {
         jQuery(".block-cart #time, #time").show();
+<<<<<<< HEAD
         jQuery(".block-cart #timesch, #timesch").show();
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         jQuery(".block-cart #" + id + ", #" + id).addClass('active');
         jQuery(".block-cart #now, #now").removeClass('active');
 
@@ -645,7 +710,10 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
     
     function hideTime(id) {
         jQuery(".block-cart #time, #time").hide();
+<<<<<<< HEAD
         jQuery(".block-cart #timesch, #timesch").hide();
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         jQuery(".block-cart #" + id + ", #" + id).addClass('active');
         jQuery(".block-cart #later, #later").removeClass('active');
         jQuery(".block-cart #times, #times").attr("value", "now");
@@ -681,9 +749,14 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
 
         jQuery("#delivery_date").attr("value", date);
         jQuery("#delivery_time").attr("value", time);
+<<<<<<< HEAD
         jQuery('#checkoutForm').append(jQuery('#form').html());
         jQuery('#checkoutForm').submit();
         return false;
+=======
+        jQuery('#post_to_onepage').append(jQuery('#form').html());
+        jQuery('#post_to_onepage').submit();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     }
 
     var resizeMiniCart = function () {
@@ -701,7 +774,16 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
     
 </script>
 
+<<<<<<< HEAD
     <div class="minicart-actions" style="text-align: center">
+=======
+        
+        
+        
+        
+        
+        <div class="minicart-actions" style="text-align: center">
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             <?php if ($_cartQty && $this->isPossibleOnepageCheckout()): ?>
             <!--<ul class="checkout-types minicart">-->
                 <?php echo $this->getChildHtml('extra_actions') ?>
@@ -714,8 +796,13 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
                 <!--</li>-->
             <!--</ul>-->
             <?php endif ?>
+<<<<<<< HEAD
           <!--  <a class="cart-link button" href="<?php //echo $this->getUrl('checkout/cart'); ?>">
                 <?php //echo $this->__('View Shopping Cart'); ?> -->
+=======
+            <a class="cart-link button" href="<?php echo $this->getUrl('checkout/cart'); ?>">
+                <?php echo $this->__('View Shopping Cart'); ?>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             </a>
         </div>
         <?php
@@ -731,7 +818,12 @@ if (Mage::getSingleton('core/session')->getCartParams()) {
          */
         ?>
     <?php endif ?>
+<<<<<<< HEAD
 </div>
 
 
+=======
+    </div>
+</div>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <?php endif;?>

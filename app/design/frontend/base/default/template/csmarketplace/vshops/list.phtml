@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     ul#toolbar {
         font-weight: bold; 
@@ -34,6 +35,8 @@
     }
     
 </style>
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <?php
 /**
  * CedCommerce
@@ -87,12 +90,21 @@ $height = $height ? $height : 200;
 //        'created_at'
     ];
     ?>
+<<<<<<< HEAD
     <ul id="toolbar">
     <?php
     $currentSortBy = isset($queries['sortby']) ? $queries['sortby'] : 'distance';
     $currentSortDir = isset($queries['sortdir']) ? $queries['sortdir'] : 'asc';
     ?>
         <li><h3>Sort By: </h3></li>
+=======
+    <ul>
+    <?php
+    $currentSortBy = $queries['sortby'];
+    $currentSortDir = isset($queries['sortdir'])?$queries['sortdir']:'asc';
+    ?>
+        <li style="margin-right: 15px; display: inline-block"><h3>Sort By: </h3></li>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     <?php
     foreach ($sortParams as $sortBy => $sortValue) {
         if ($currentSortBy == $sortBy) {
@@ -102,8 +114,16 @@ $height = $height ? $height : 200;
         }
         $queries['sortby'] = $sortBy;
     ?>    
+<<<<<<< HEAD
         <li>
             <a href="<?php echo $currentUrl . '?' . http_build_query($queries); ?>" <?php if ($currentSortBy == $sortBy) { echo 'class="active"'; } ?>  >
+=======
+        <li style="margin-right: 15px; display: inline-block">
+            <?php // echo $currentUrl . '?' . http_build_query($queries); ?>
+            <a style="display: block; padding: 5px 10px; cursor: pointer; color: #fff;
+               background-color: #aa3a2f; border-bottom: 2px solid;"
+               href="<?php echo $currentUrl . '?' . http_build_query($queries); ?>">
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                    <?php echo $sortValue ?>&nbsp;&nbsp;
                    <?php if ($currentSortBy == $sortBy) { ?>
                    <span style="font-weight: 200; font-size: 14px;">
@@ -121,8 +141,18 @@ $height = $height ? $height : 200;
     if (!$vendors || !$vendors->count()) {
     ?>
     <div class="remove_vendors_wrap">
+<<<<<<< HEAD
         <p><?php echo $this->__('Sorry!! No Records available.') ?></p>
         <p><a href='/' style="color: #333; cursor: pointer">Change Location</a></p>
+=======
+        <p class="note-msg"><?php echo $this->__('Sorry!! No Records available.') ?></p>
+        <span class="currently_search">
+            <a class="remove" href="<?php echo $this->getUrl('csmarketplace/vshops/index') ?>">
+                <?php echo $this->__('X'); ?>
+            </a>
+        </span>
+        
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     </div>
     <?php
     } else {
@@ -157,17 +187,33 @@ $height = $height ? $height : 200;
 
             <?php
             $i = 0;
+<<<<<<< HEAD
             $day = Mage::getSingleton('core/date')->date('w');
             foreach ($vendors as $vendor) {
                 for ($j = 0; $j < count($distance); $j++) {
                     if ($distance[$j]['id'] == $vendor->getEntityId()) {
                         $diff = $distance[$j]['distance'];
                     } else {
+=======
+            foreach ($vendors as $vendor) {
+//                Zend_Debug::dump($vendor->getData());
+                for ($j = 0; $j < count($distance); $j++) {
+                    if ($distance[$j]['id'] == $vendor->getEntityId()) {
+
+                        $diff = $distance[$j]['distance'];
+                    } else {
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                         continue;
                     }
                 }
 
 
+<<<<<<< HEAD
+=======
+                $day = Mage::getSingleton('core/date')->date('w');
+
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                 if ($day == 0) {
                     $value = $vendor->getSunCloseTime();
                     $value = explode(',', $value);
@@ -272,17 +318,30 @@ $height = $height ? $height : 200;
                         $value = date("Y-m-d h:i:s", strtotime($todayPrefix . " " . $value));
                     }
                     ?>
+<<<<<<< HEAD
                     <!--<li  class="open_time" <?php if ($diff <= 0) { ?>style="background: transparent" <?php } ?>>
+=======
+                    <li  class="open_time" <?php if ($diff <= 0) { ?>style="background: transparent" <?php } ?>>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                       <?php
                         $formatedOpeningTime = date('Y-m-d H:i:s', strtotime($todayPrefix . " " . $Openvalue));
                         $formatedClosingTime = date('Y-m-d H:i:s', strtotime($value));
                         $now = Mage::getModel('core/date')->timestamp(now());
                         $diff1 = strtotime(date("Y-m-d H:i:s", $now)) - strtotime($formatedOpeningTime);
                         $diff2 = strtotime($formatedClosingTime) - strtotime(date("Y-m-d H:i:s", $now));
+<<<<<<< HEAD
+=======
+//                        echo nl2br("\n$formatedOpeningTime
+//                                    \n$formatedClosingTime
+//                                    \n$diff1
+//                                    \n$diff2\n");
+                        
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                         $isOpen = ( ($diff1 >= 0) && ($diff2 >= 0) ) ? "OPEN" : "CLOSED";
                         ?>
                         <label><?php echo $isOpen; ?></label>
                         <span class="value"><?php echo date("Y-m-d h:i:s a", $now); ?></span>
+<<<<<<< HEAD
                     </li> -->
 
                     <li class="rating"><?php echo __('Rating'); ?><span class="value"> <?php echo $this->getReviewsSummaryHtml($vendor); ?></span> </li>
@@ -290,6 +349,15 @@ $height = $height ? $height : 200;
                 if ($vendor->getMinOrderAmount()) {
                     echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
                 }echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol() . $vendor->getMinFreeship();
+=======
+                    </li>
+
+                    <li class="rating"><?php echo __('Rating'); ?><span class="value"> <?php echo $this->getReviewsSummaryHtml($vendor); ?></span> </li>
+                    <li class="min_amount"><?php echo __('Minimum delivery order'); ?><span class="value"> <?php
+                if ($vendor->getMinOrderAmount()) {
+                    echo Mage::app()->getLocale()->currency(Mage::app()->getStore()->getCurrentCurrencyCode())->getSymbol();
+                }echo $vendor->getMinFreeship();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             ?></li>
                     <li class="wait_time"><?php echo __('Wait Time'); ?><span class="value"> <?php echo $vendor->getDeliveryTime(); ?></li>
                     <li class="delivery">
@@ -297,8 +365,17 @@ $height = $height ? $height : 200;
                         <span class="value">
                             <?php
                             if ($vendor->getDeliveryFee()) {
+<<<<<<< HEAD
                                 echo $vendor->getDeliveryFeeInRadius($diff);
                             }
+=======
+                                
+                                echo $vendor->getDeliveryFeeInRadius($diff);
+                            }
+//                            else {
+//                                echo 'FREE';
+//                            }
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                             ?>
                         </span>
                     </li>

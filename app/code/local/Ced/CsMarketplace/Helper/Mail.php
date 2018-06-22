@@ -16,7 +16,11 @@
  * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
  * @license     http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */ 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 {
 	
@@ -32,7 +36,11 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 	const XML_PATH_PRODUCT_CONFIRMED_EMAIL_TEMPLATE       = 'ced_vproducts/general/product_approved_template';
 	const XML_PATH_PRODUCT_REJECTED_EMAIL_TEMPLATE     = 'ced_vproducts/general/product_rejected_template';
 	const XML_PATH_PRODUCT_DELETED_EMAIL_TEMPLATE     = 'ced_vproducts/general/product_deleted_template';
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	const XML_PATH_ORDER_EMAIL_IDENTITY 		= 'ced_vorders/general/email_identity';
 	const XML_PATH_ORDER_NEW_EMAIL_TEMPLATE       = 'ced_vorders/general/order_new_template';
 	const XML_PATH_ORDER_CANCEL_EMAIL_TEMPLATE       = 'ced_vorders/general/order_cancel_template';
@@ -70,6 +78,7 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 	public function sendAccountEmail($status, $backUrl = '', $vendor, $storeId = '0')
 	{
 		$types = array(
+<<<<<<< HEAD
 			Ced_CsMarketplace_Model_Vendor::VENDOR_APPROVED_STATUS   => self::XML_PATH_ACCOUNT_CONFIRMED_EMAIL_TEMPLATE,  
 			Ced_CsMarketplace_Model_Vendor::VENDOR_DISAPPROVED_STATUS => self::XML_PATH_ACCOUNT_REJECTED_EMAIL_TEMPLATE,
 			Ced_CsMarketplace_Model_Vendor::VENDOR_DELETED_STATUS => self::XML_PATH_ACCOUNT_DELETED_EMAIL_TEMPLATE,
@@ -77,13 +86,28 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 		if (!isset($types[$status])) 
 			return;
 
+=======
+				Ced_CsMarketplace_Model_Vendor::VENDOR_APPROVED_STATUS   => self::XML_PATH_ACCOUNT_CONFIRMED_EMAIL_TEMPLATE,  
+				Ced_CsMarketplace_Model_Vendor::VENDOR_DISAPPROVED_STATUS => self::XML_PATH_ACCOUNT_REJECTED_EMAIL_TEMPLATE,
+				Ced_CsMarketplace_Model_Vendor::VENDOR_DELETED_STATUS => self::XML_PATH_ACCOUNT_DELETED_EMAIL_TEMPLATE,
+		);
+		if (!isset($types[$status])) 
+			return;
+	
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		if (!$storeId) {
 			$customer = Mage::getModel('customer/customer')->load( $vendor->getCustomerId());
 			$storeId=$customer->getStoreId();
 		}
+<<<<<<< HEAD
 
 		$this->_sendEmailTemplate($types[$status], self::XML_PATH_ACCOUNT_EMAIL_IDENTITY,
 			array('vendor' => $vendor, 'back_url' => $backUrl), $storeId);
+=======
+	
+		$this->_sendEmailTemplate($types[$status], self::XML_PATH_ACCOUNT_EMAIL_IDENTITY,
+				array('vendor' => $vendor, 'back_url' => $backUrl), $storeId);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		return $this;
 	}
 	
@@ -99,19 +123,32 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 	public function sendShopEmail($status, $backUrl = '', $vendor, $storeId = '0')
 	{
 		$types = array(
+<<<<<<< HEAD
 			Ced_CsMarketplace_Model_Vshop::ENABLED   => self::XML_PATH_SHOP_ENABLED_EMAIL_TEMPLATE,
 			Ced_CsMarketplace_Model_Vshop::DISABLED => self::XML_PATH_SHOP_DISABLED_EMAIL_TEMPLATE,
 			);
 		if (!isset($types[$status]))
 			return;
 
+=======
+				Ced_CsMarketplace_Model_Vshop::ENABLED   => self::XML_PATH_SHOP_ENABLED_EMAIL_TEMPLATE,
+				Ced_CsMarketplace_Model_Vshop::DISABLED => self::XML_PATH_SHOP_DISABLED_EMAIL_TEMPLATE,
+		);
+		if (!isset($types[$status]))
+			return;
+	
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		if (!$storeId) {
 			$customer = Mage::getModel('customer/customer')->load( $vendor->getCustomerId());
 			$storeId=$customer->getStoreId();
 		}
 		if (Mage::getStoreConfig('ced_csmarketplace/general/shopurl_active'))	{
 			$this->_sendEmailTemplate($types[$status], self::XML_PATH_ACCOUNT_EMAIL_IDENTITY,
+<<<<<<< HEAD
 				array('vendor' => $vendor, 'back_url' => $backUrl), $storeId);
+=======
+					array('vendor' => $vendor, 'back_url' => $backUrl), $storeId);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 			return $this;
 		}
 		else {
@@ -125,6 +162,7 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 	 */
 	public function sendOrderEmail(Mage_Sales_Model_Order $order,$type){
 		
+<<<<<<< HEAD
 		//echo $this->canSendNewOrderEmail($storeId);
 		//echo "<br/>";
 		//print_r($storeId = $order->getStore()->getId());
@@ -143,6 +181,12 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 			Ced_CsMarketplace_Model_Vorders::ORDER_NEW_STATUS   => self::XML_PATH_ORDER_NEW_EMAIL_TEMPLATE,
 			Ced_CsMarketplace_Model_Vorders::ORDER_CANCEL_STATUS => self::XML_PATH_ORDER_CANCEL_EMAIL_TEMPLATE,
 			);
+=======
+		$types = array(
+				Ced_CsMarketplace_Model_Vorders::ORDER_NEW_STATUS   =>self::XML_PATH_ORDER_NEW_EMAIL_TEMPLATE,
+				Ced_CsMarketplace_Model_Vorders::ORDER_CANCEL_STATUS => self::XML_PATH_ORDER_CANCEL_EMAIL_TEMPLATE,
+		);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		if (!isset($types[$type]))
 			return;
 		$storeId = $order->getStore()->getId();
@@ -156,7 +200,11 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 				return;
 			}
 		}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		$vendorIds = array();
 		foreach($order->getAllItems() as $item){
 			if(!in_array($item->getVendorId(), $vendorIds)) $vendorIds[] = $item->getVendorId();
@@ -196,6 +244,7 @@ class Ced_CsMarketplace_Helper_Mail extends Mage_Core_Helper_Abstract
 				Mage::unregister('current_vorder');
 			Mage::register('current_order', $order);
 			Mage::register('current_vorder', $vorder);
+<<<<<<< HEAD
 			
 			//print_r($order->getdata());
 			//print_r($vendor->getData());
@@ -500,24 +549,44 @@ $i = 0; //counter
 			}
 		}
 
+=======
+				
+			$this->_sendEmailTemplate($types[$type], self::XML_PATH_ORDER_EMAIL_IDENTITY,
+					array('vendor' => $vendor,'order' => $order, 'billing' => $order->getBillingAddress(),'payment_html'=>$paymentBlockHtml),null);
+		}
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		if($type==Ced_CsMarketplace_Model_Vorders::ORDER_CANCEL_STATUS){
 			// Stop store emulation process
 			$appEmulation->stopEnvironmentEmulation($initialEnvironmentInfo);
 		}
+<<<<<<< HEAD
 		
 	}
 
 
+=======
+	
+	}
+	
+	
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	/**
 	 * Send product status change notification email to vendor
 	 * @param Mage_Catalog_Model_Product $product,int $status
 	 */
 	public function sendProductNotificationEmail($ids,$status){
 		$types = array(
+<<<<<<< HEAD
 			Ced_CsMarketplace_Model_Vproducts::APPROVED_STATUS   => self::XML_PATH_PRODUCT_CONFIRMED_EMAIL_TEMPLATE,  
 			Ced_CsMarketplace_Model_Vproducts::NOT_APPROVED_STATUS => self::XML_PATH_PRODUCT_REJECTED_EMAIL_TEMPLATE, 
 			Ced_CsMarketplace_Model_Vproducts::DELETED_STATUS => self::XML_PATH_PRODUCT_DELETED_EMAIL_TEMPLATE,
 			);
+=======
+				Ced_CsMarketplace_Model_Vproducts::APPROVED_STATUS   => self::XML_PATH_PRODUCT_CONFIRMED_EMAIL_TEMPLATE,  
+				Ced_CsMarketplace_Model_Vproducts::NOT_APPROVED_STATUS => self::XML_PATH_PRODUCT_REJECTED_EMAIL_TEMPLATE, 
+				Ced_CsMarketplace_Model_Vproducts::DELETED_STATUS => self::XML_PATH_PRODUCT_DELETED_EMAIL_TEMPLATE,
+		);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		
 		if (!isset($types[$status]))
 			return;
@@ -546,7 +615,11 @@ $i = 0; //counter
 			$customer = Mage::getModel('customer/customer')->load( $vendor->getCustomerId());
 			$storeId=$customer->getStoreId();
 			$this->_sendEmailTemplate($types[$status], self::XML_PATH_PRODUCT_EMAIL_IDENTITY,
+<<<<<<< HEAD
 				array('vendor' => $vendor,'products' => $products),$storeId);
+=======
+					array('vendor' => $vendor,'products' => $products),$storeId);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		}
 	}
 	
@@ -578,7 +651,11 @@ $i = 0; //counter
 		$emailInfo = Mage::getModel('core/email_info');
 		$emailInfo->addTo($vendor->getEmail(), $vendor->getName());
 		$mailer->addEmailInfo($emailInfo);
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 		// Set all required params and send emails
 		$mailer->setSender(Mage::getStoreConfig($sender, $storeId));
 		$mailer->setStoreId($storeId);

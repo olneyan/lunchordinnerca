@@ -179,7 +179,11 @@ Checkout.prototype = {
                 this.saveMethodUrl,
                 {method: 'post', onFailure: this.ajaxFailure.bind(this), parameters: {method:'register'}}
             );
+<<<<<<< HEAD
             //Element.show('register-customer-password');
+=======
+            Element.show('register-customer-password');
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             this.gotoSection('billing', true);
         }
         else{

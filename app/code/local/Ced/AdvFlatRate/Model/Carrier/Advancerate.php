@@ -40,6 +40,7 @@ class Ced_AdvFlatRate_Model_Carrier_Advancerate extends Mage_Shipping_Model_Carr
 		
 	   $referUrl = Mage::app()->getRequest()->getServer('HTTP_REFERER');
 	  // $data = "extradata/";
+<<<<<<< HEAD
            if ($indx = strpos($referUrl, "/extradata/")) {
                $uri = substr($referUrl, $indx + 1);
 
@@ -65,6 +66,31 @@ class Ced_AdvFlatRate_Model_Carrier_Advancerate extends Mage_Shipping_Model_Carr
                  }
                 }
            }
+=======
+	   $uri = substr($referUrl, strpos($referUrl, "/extradata/") + 1);
+	 
+	   if(!empty($uri))
+	   {
+	   	$uri = explode('/',$uri);
+	   
+	    $uri1 = urldecode($uri[1]);
+	   
+	    $split = explode("?",$uri1);
+	   
+	    $uri1 = $split[0];
+	   
+	    $uri1 = json_decode($uri1,true);
+	   
+	    if(count($uri1))
+	    {
+	    	if(Mage::getSingleton('core/session')->getCartParams())
+	    	{
+	    		Mage::getSingleton('core/session')->unsCartParams();
+	    	}
+	    	Mage::getSingleton('core/session')->setCartParams($uri1);
+	    }
+	   }
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 	 
 		$params = Mage::getSingleton('core/session')->getCartParams();
 	 
@@ -95,9 +121,15 @@ class Ced_AdvFlatRate_Model_Carrier_Advancerate extends Mage_Shipping_Model_Carr
     			//$currentUrl = Mage::getSingleton('core/session')->getReferUrl();
     			//$pos = strpos($currentUrl, 'pickup');
     			
+<<<<<<< HEAD
     				
   
                         if($params['order_for'] == 'delivery' && $params['time'] == 'now')
+=======
+    			
+    				
+    				if($params['order_for'] == 'delivery' && $params['time'] == 'now')
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
     				{
     					$method->setCarrier('advflatrate');
     					$method->setCarrierTitle($this->getConfigData('title'));

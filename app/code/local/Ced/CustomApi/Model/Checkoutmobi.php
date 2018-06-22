@@ -322,12 +322,18 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
     }
     
     function validate($data){
+<<<<<<< HEAD
     	
         $error='success';
         if(isset($data['customer_id']) && $data['customer_id']>0){
         	
         	 $customer=Mage::getModel('customer/customer')->load($data['customer_id']);
         	
+=======
+        $error='success';
+        if(isset($data['customer_id']) && $data['customer_id']>0){
+           $customer=Mage::getModel('customer/customer')->load($data['customer_id']);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
            if(!$customer->getId())
            $error=$error."Customer Id Does Not Exists.";
            else if($customer->getId()){
@@ -352,7 +358,11 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
     function viewcart($data){
 
         $quote=$this->_getQuotemobi($data);
+<<<<<<< HEAD
        
+=======
+       // echo '<pre>';print_r($quote->getData());die;
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             $response=array();
             if($quote!==false && $quote->getItemsCount()!=0 ){
                     $total="";
@@ -376,11 +386,18 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
                     }
 
                     if($grandtotal_tax_setting=='0'){
+<<<<<<< HEAD
                         $response['data']['grandtotal']=Mage::helper('core')->currency($quote->getGrandTotal()+$quote->getShippingAddress()->getTaxAmount(), true, false);
                     }elseif($grandtotal_tax_setting=='1'){
                        // $response['data']['grandtotal']=Mage::helper('core')->currency($quote->getGrandTotal(), true, false);
                     	$response['data']['grandtotal']=Mage::helper('core')->currency($quote->getGrandTotal(), true, false);
                     	 
+=======
+                        $response['data']['grandtotal']=Mage::helper('core')->currency($quote->getGrandTotal(), true, false);
+                    }elseif($grandtotal_tax_setting=='1'){
+                       // $response['data']['grandtotal']=Mage::helper('core')->currency($quote->getGrandTotal(), true, false);
+                        $response['data']['grandtotal']=Mage::helper('core')->currency($quote->getGrandTotal()+$quote->getShippingAddress()->getTaxAmount(), true, false);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                     }
 
                     $shipping_amount_value=0;
@@ -477,6 +494,7 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
                      	//print_r($vendor); die("dfkg");
                      	$freeShipAmount = $vendor['min_freeship'];
                      }
+<<<<<<< HEAD
                     
                      $attribute = Mage::getSingleton ( 'eav/config' )->getAttribute ( 'csmarketplace_vendor', 'delivery' );
                      
@@ -496,6 +514,14 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
                  
                      
                     
+=======
+                     $shippingOptions = ['Pickup'];
+                     if($vendor['min_freeship'] <= $total)
+                     {
+                     	$shippingOptions[]='Delivery';
+                     
+                     }
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                     
                      
                      
@@ -720,7 +746,11 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
         	
         }
         
+<<<<<<< HEAD
        
+=======
+       // print_r($response); die("df");
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         $dietryInfo =  Mage::getStoreConfig('ced_vproducts/general/dietary_info');
        
          $response['cart_options'] = ['ship_options'=>$shippingOptions,'times'=> $showTime,'later_hours'=>['days'=> $days,'hour'=>$hours],'dietary_info'=>$dietryInfo];
@@ -742,9 +772,13 @@ class Ced_CustomApi_Model_Checkoutmobi extends Mage_Core_Model_Abstract {
         if(isset($tax_setting['cart_display']) && count($tax_setting['cart_display'])){
            $cart_tax_setting = $tax_setting['cart_display'];
         }
+<<<<<<< HEAD
        
         if($type!='' && isset($cart_tax_setting[$type])){
         	
+=======
+        if($type!='' && isset($cart_tax_setting[$type])){
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             return $cart_tax_setting[$type];
         }
     }

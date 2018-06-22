@@ -310,9 +310,13 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                         if (eligible == "success" || cartaddzz == "yes")
                                         {
 
+<<<<<<< HEAD
                                             var url = "<?php echo $this->getUrl('csmarketplace/product/view', [
                                                 '_secure' => Mage::app()->getFrontController()->getRequest()->isSecure()
                                             ]) ?>";
+=======
+                                            var url = "<?php echo $this->getUrl('csmarketplace/product/view') ?>";
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                             //gGift.fancybox.showLoading();
                                             var myForm = new VarienForm('product_addtocart_form', true);
                                             var value = {
@@ -353,7 +357,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                                         } else {
                                                             gGift.fancybox({
                                                                 'minWidth': 300,
+<<<<<<< HEAD
                                                                 'maxWidth': 600,
+=======
+                                                                'maxWidth': 450,
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                                 'content': result,
                                                                 
                                                             });
@@ -390,9 +398,13 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                     {
 
 
+<<<<<<< HEAD
                                         var url = "<?php echo $this->getUrl('csmarketplace/product/remove', [
                                             '_secure' => Mage::app()->getFrontController()->getRequest()->isSecure()
                                         ]) ?>";
+=======
+                                        var url = "<?php echo $this->getUrl('csmarketplace/product/remove') ?>";
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 
                                         jQuery.ajax({url: url, type: "POST", data: {id: id}, success: function (result) {
 
@@ -420,9 +432,13 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                     function  cartadd(id)
                                     {
 
+<<<<<<< HEAD
                                         var url = "<?php echo $this->getUrl('csmarketplace/product/view', [
                                             '_secure' => Mage::app()->getFrontController()->getRequest()->isSecure()
                                         ]) ?>";
+=======
+                                        var url = "<?php echo $this->getUrl('csmarketplace/product/view') ?>";
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                         //gGift.fancybox.showLoading();
                                         var myForm = new VarienForm('product_addtocart_form', true);
                                         var value = {
@@ -446,7 +462,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                                     window.cartaddzz = 'yes';
                                                     //overlay.remove();
 
+<<<<<<< HEAD
                                                     loader.delay(500).remove();
+=======
+                                                    loader.delay(3000).remove();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                     if (gGift('.fancybox-inner')[0]) {
                                                         gGift('.fancybox-inner').html(result);
                                                         jQuery(".tabs").remove();
@@ -486,7 +506,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                         if (jQuery('#product_addtocart_form').is(":visible"))
                                         {
                                             var url = jQuery('#product_addtocart_form').attr('action');
+<<<<<<< HEAD
                                             url = url.replace("checkout", "lodmarketplace");
+=======
+                                            url = url.replace("checkout", "csmarketplace");
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                         }
                                         else {
 
@@ -498,12 +522,18 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
 
                                             if (eligible == "success" || cartaddzz == "yes")
                                             {
+<<<<<<< HEAD
                                                 
                                                 var url = "<?php echo $this->getUrl('csmarketplace/cart/add', [
                                                     'qty' => 1,
                                                     '_secure' => Mage::app()->getFrontController()->getRequest()->isSecure()
                                                 ]); ?>";
 
+=======
+
+                                                var url = "<?php echo $this->getUrl('csmarketplace/cart/add', ['qty' => 1]); ?>";
+                                                                
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                 url = url + 'product/' + id;
 
                                             }
@@ -518,11 +548,15 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                         }
                                         jQuery(".fancybox-overlay").attr("style", 'display:none');
 
+<<<<<<< HEAD
                                         var pickup = "<?php echo $this->getUrl('checkout/onepage/', [
                                             'pickup' => 'true',
                                             '_secure' => Mage::app()->getFrontController()->getRequest()->isSecure()
                                         ]); ?>";
 //                                        alert(url);
+=======
+                                        var pickup = "<?php echo $this->getUrl('checkout/onepage/', ['pickup' => 'true']); ?>";
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                         jQuery.ajax({
                                             url: url,
                                             type: "POST",
@@ -541,7 +575,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                                     var intervalSuccessAddToCart = setInterval(function () {
                                                         jQuery('.success-add-to-cart .close').click();
                                                         clearInterval(intervalSuccessAddToCart);
+<<<<<<< HEAD
                                                     }, 500);
+=======
+                                                    }, 2000);
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                     
                                                     
                                                     var minicartOptions = {
@@ -561,7 +599,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
 
                                                     jQuery("#top").removeClass('fancybox-margin fancybox-lock');
 
+<<<<<<< HEAD
                                                     jQuery('#msg').delay(500).fadeOut();
+=======
+                                                    jQuery('#msg').delay(6000).fadeOut();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                     jQuery(".btn-cart").attr("onclick", 'fun(this.id);');
 
                                                     jQuery(".block-cart-inner").html(data.cart_sidebar);
@@ -575,7 +617,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                                     jQuery('#header').after('<ul id="msg" class="messages"><li class="error-msg"><ul><li><span>' + data.message + '</span></li></ul></li></ul>');
                                                     jQuery(".fancybox-overlay").remove();
                                                     jQuery("#top").removeClass('fancybox-margin fancybox-lock');
+<<<<<<< HEAD
                                                     jQuery('#msg').delay(500).fadeOut();
+=======
+                                                    jQuery('#msg').delay(6000).fadeOut();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                     jQuery(".btn-cart").attr("onclick", 'fun(this.id);');
                                                     //   loader.delay( 3000 ).remove();
 
@@ -588,7 +634,11 @@ if (Mage::helper('core')->isModuleEnabled('Ced_CsVAttribute')) {
                                                 jQuery('#header').after('<ul id="msg" class="messages"><li class="error-msg"><ul><li><span>' + data.message + '</span></li></ul></li></ul>');
                                                 jQuery(".fancybox-overlay").remove();
                                                 jQuery("#top").removeClass('fancybox-margin fancybox-lock');
+<<<<<<< HEAD
                                                 jQuery('#msg').delay(500).fadeOut();
+=======
+                                                jQuery('#msg').delay(1000).fadeOut();
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
                                                 jQuery(".btn-cart").attr("onclick", 'fun(this.id);');
                                                 //loader.delay( 3000 ).remove();
                                             }

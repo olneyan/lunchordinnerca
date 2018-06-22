@@ -62,7 +62,11 @@ For checkout/onepage/shipping.phtml:
     </div>
 <?php endif; ?>
     <div class="field name-firstname">
+<<<<<<< HEAD
         <label for="<?php echo $this->getFieldId('firstname')?>" class="required"><em>*</em><?php echo "Full Name : " //$this->getStoreLabel('firstname') ?></label>
+=======
+        <label for="<?php echo $this->getFieldId('firstname')?>" class="required"><em>*</em><?php echo $this->getStoreLabel('firstname') ?></label>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
         <div class="input-box">
             <input type="text" id="<?php echo $this->getFieldId('firstname')?>" name="<?php echo $this->getFieldName('firstname')?>" value="<?php echo $this->escapeHtml($this->getObject()->getFirstname()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('firstname')) ?>" maxlength="255" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('firstname') ?>" <?php echo $this->getFieldParams() ?> />
         </div>
@@ -76,12 +80,21 @@ For checkout/onepage/shipping.phtml:
         </div>
     </div>
 <?php endif; ?>
+<<<<<<< HEAD
    <!-- <div class="field name-lastname">
         <label for="<?php //echo $this->getFieldId('lastname')?>"><?php //echo $this->getStoreLabel('lastname') ?></label>
         <div class="input-box">
             <input type="text" id="<?php //echo $this->getFieldId('lastname')?>" name="<?php //echo $this->getFieldName('lastname')?>" value="<?php //echo $this->escapeHtml($this->getObject()->getLastname()) ?>" title="<?php //echo Mage::helper('core')->quoteEscape($this->getStoreLabel('lastname')) ?>" maxlength="255" class="input-text <?php //echo $this->helper('customer/address')->getAttributeValidationClass('lastname') ?>" <?php //echo $this->getFieldParams() ?> />
         </div>
     </div>-->
+=======
+    <div class="field name-lastname">
+        <label for="<?php echo $this->getFieldId('lastname')?>" class="required"><em>*</em><?php echo $this->getStoreLabel('lastname') ?></label>
+        <div class="input-box">
+            <input type="text" id="<?php echo $this->getFieldId('lastname')?>" name="<?php echo $this->getFieldName('lastname')?>" value="<?php echo $this->escapeHtml($this->getObject()->getLastname()) ?>" title="<?php echo Mage::helper('core')->quoteEscape($this->getStoreLabel('lastname')) ?>" maxlength="255" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('lastname') ?>" <?php echo $this->getFieldParams() ?> />
+        </div>
+    </div>
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
 <?php if ($this->showSuffix()): ?>
     <div class="field name-suffix">
         <label for="<?php echo $this->getFieldId('suffix')?>"<?php if ($this->isSuffixRequired()) echo ' class="required"' ?>><?php if ($this->isSuffixRequired()) echo '<em>*</em>' ?><?php echo $this->getStoreLabel('suffix') ?></label>

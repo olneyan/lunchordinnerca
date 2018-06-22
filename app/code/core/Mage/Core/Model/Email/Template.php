@@ -405,7 +405,10 @@ class Mage_Core_Model_Email_Template extends Mage_Core_Model_Email_Template_Abst
         }
 
         if ($this->hasQueue() && $this->getQueue() instanceof Mage_Core_Model_Email_Queue) {
+<<<<<<< HEAD
         //if (!($this->hasQueue() && $this->getQueue() instanceof Mage_Core_Model_Email_Queue)) {
+=======
+>>>>>>> aa209c7ea91034ffae67f205b17068791e2bbe6b
             /** @var $emailQueue Mage_Core_Model_Email_Queue */
             $emailQueue = $this->getQueue();
             $emailQueue->clearRecipients();
